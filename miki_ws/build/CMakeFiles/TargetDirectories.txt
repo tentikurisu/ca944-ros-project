@@ -28,3 +28,11 @@
 /home/ros/y3-PDE3432-assesment-1/miki_ws/build/gtest/gtest/CMakeFiles/gtest_main.dir
 /home/ros/y3-PDE3432-assesment-1/miki_ws/build/gtest/gtest/CMakeFiles/install/strip.dir
 /home/ros/y3-PDE3432-assesment-1/miki_ws/build/gtest/gtest/CMakeFiles/install/local.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/rebuild_cache.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/edit_cache.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/list_install_components.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/install.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/_catkin_empty_exported_target.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/install/local.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/install/strip.dir
+/home/ros/y3-PDE3432-assesment-1/miki_ws/build/my_mikibot/CMakeFiles/test.dir

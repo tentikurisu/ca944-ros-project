@@ -1,0 +1,8 @@
+prefix=/home/ros/y3-PDE3432-assesment-1/miki_ws/install
+
+Name: my_mikibot
+Description: Description of my_mikibot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

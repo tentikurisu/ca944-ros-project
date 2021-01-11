@@ -1,2 +1,2 @@
-
+my_mikibot
 -DCATKIN_DEVEL_PREFIX=/home/ros/y3-PDE3432-assesment-1/miki_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ros/y3-PDE3432-assesment-1/miki_ws/install -G Unix Makefiles
