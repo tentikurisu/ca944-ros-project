@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <param name="robot_description" command="cat '$(find miki_ws)/home/ros/y3-PDE3432-assesment-1/miki_ws/src/my_mikibot/src/urdf'" />
+    
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model mikibot" />
+
+</launch>
