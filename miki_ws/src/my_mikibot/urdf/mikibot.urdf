@@ -1,11 +1,15 @@
 <?xml version="1.0"?>
-<robot name="henpai">
+<robot name="mikibot">
   <link name="base">
     <visual>
       <geometry>
         <box size="0.6 0.5 0.1"/>
       </geometry>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
  <link name="body">
     <visual>
@@ -14,6 +18,10 @@
       </geometry>
       <origin rpy="0 0 1.57075" xyz="0 0 0.05"/>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
 <joint name="base_to_body" type="fixed">
     <parent link="base"/>
@@ -29,8 +37,13 @@
         <color rgba="0 0 0 1"/>
       </material>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
 <joint name="lWb_joint" type="continuous">
+	<axis xyz="0 0 1"/>
     <parent link="base"/>
     <child link="bl_wheel"/>
     <origin rpy="1.57075 0 0" xyz="-0.2 0.25 -0.05"/>
@@ -47,8 +60,13 @@
         <color rgba="0 0 0 1"/>
       </material>
     </visual>
-  </link>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>  
+</link>
 <joint name="RWb_joint" type="continuous">
+  	<axis xyz="0 0 1"/>
     <parent link="base"/>
     <child link="br_wheel"/>
     <origin rpy="1.57075 0 0" xyz="-0.2 -0.25 -0.05"/>
@@ -106,6 +124,10 @@
       </geometry>
       <origin rpy="0 0 0" xyz="0.25 -0.2 0.1"/>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial> 
   </link>
   <joint name="Right_mandible" type="revolute">
     <axis xyz="0 0 1"/>
