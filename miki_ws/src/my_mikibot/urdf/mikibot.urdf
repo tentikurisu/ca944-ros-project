@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<robot name="henpai">
+  <link name="base">
+    <visual>
+      <geometry>
+        <box size="0.6 0.5 0.1"/>
+      </geometry>
+    </visual>
+  </link>
+ <link name="body">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.4"/>
+      </geometry>
+      <origin rpy="0 0 1.57075" xyz="0 0 0.05"/>
+    </visual>
+  </link>
+<joint name="base_to_body" type="fixed">
+    <parent link="base"/>
+    <child link="body"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+<link name="bl_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+<joint name="lWb_joint" type="continuous">
+    <parent link="base"/>
+    <child link="bl_wheel"/>
+    <origin rpy="1.57075 0 0" xyz="-0.2 0.25 -0.05"/>
+    <limit effort="100" velocity="100"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+<link name="br_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+<joint name="RWb_joint" type="continuous">
+    <parent link="base"/>
+    <child link="br_wheel"/>
+    <origin rpy="1.57075 0 0" xyz="-0.2 -0.25 -0.05"/>
+    <limit effort="100" velocity="100"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+
+
+<link name="roller">
+    <visual>
+      <geometry>
+        <sphere length="0.1" radius="0.06"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+</link>
+<joint name="rollercast" type="continuous">
+    <parent link="base"/>
+    <child link="roller"/>
+    <origin rpy="0 0 0" xyz="0.2 0 -0.05"/>
+    <limit effort="100" velocity="100"/>
+    <dynamics damping="0.0" friction="0.0"/>
+  </joint>
+ <link name="leftman">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.25 0.2 0.1"/>
+    </visual>
+  </link>
+  <joint name="left_mandible" type="revolute">
+    <axis xyz="0 0 -1"/>
+    <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="body"/>
+    <child link="leftman"/>
+  </joint>
+ <link name="lefthan">
+    <visual>
+      <geometry>
+        <box size='0.4 0.02 0.05'/>
+      </geometry>
+      <origin rpy="0 0 45" xyz="0.3 0.3 0.15"/>
+    </visual>
+  </link>
+
+ <link name="rightman">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.25 -0.2 0.1"/>
+    </visual>
+  </link>
+  <joint name="Right_mandible" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="body"/>
+    <child link="rightman"/>
+  </joint>
+ <link name="righthan">
+    <visual>
+      <geometry>
+        <box size='0.4 0.02 0.05'/>
+      </geometry>
+      <origin rpy="0 0 -45" xyz="0.3 -0.3 0.15"/>
+    </visual>
+  </link>
+<joint name="gripper_left" type="fixed">
+    <parent link="leftman"/>
+    <child link="lefthan"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+<joint name="gripper_right" type="fixed">
+    <parent link="rightman"/>
+    <child link="righthan"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+</robot>
