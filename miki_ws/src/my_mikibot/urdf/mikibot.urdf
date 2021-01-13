@@ -105,6 +105,10 @@
         <color rgba="0 0 0 1"/>
       </material>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
       <collision>
        <geometry>
         <sphere length="0.1" radius="0.06"/>
@@ -125,6 +129,10 @@
       </geometry>
       <origin rpy="0 0 0" xyz="0.25 0.2 0.1"/>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
      <collision>
        <geometry>
         <sphere length="0.1" radius="0.05"/>
@@ -145,6 +153,10 @@
       </geometry>
       <origin rpy="0 0 45" xyz="0.3 0.3 0.15"/>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
       <collision>
        <geometry>
         <box size='0.4 0.02 0.05'/>
