@@ -10,6 +10,11 @@
       <mass value="10"/>
       <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
     </inertial>
+    <collision>
+       <geometry>
+        <box size="0.6 0.5 0.1"/>
+      </geometry>
+    </collision> 
   </link>
  <link name="body">
     <visual>
@@ -22,6 +27,11 @@
       <mass value="10"/>
       <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
     </inertial>
+    <collision>
+       <geometry>
+        <cylinder length="0.1" radius="0.4"/>
+      </geometry>
+    </collision> 
   </link>
 <joint name="base_to_body" type="fixed">
     <parent link="base"/>
@@ -41,9 +51,14 @@
       <mass value="10"/>
       <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
     </inertial>
+    <collision>
+       <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+      </geometry>
+    </collision>
   </link>
 <joint name="lWb_joint" type="continuous">
-	<axis xyz="0 0 1"/>
+    <axis xyz="0 0 1"/>
     <parent link="base"/>
     <child link="bl_wheel"/>
     <origin rpy="1.57075 0 0" xyz="-0.2 0.25 -0.05"/>
@@ -63,10 +78,15 @@
     <inertial>
       <mass value="10"/>
       <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
-    </inertial>  
+    </inertial>
+     <collision>
+       <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+      </geometry>
+     </collision>  
 </link>
 <joint name="RWb_joint" type="continuous">
-  	<axis xyz="0 0 1"/>
+    <axis xyz="0 0 1"/>
     <parent link="base"/>
     <child link="br_wheel"/>
     <origin rpy="1.57075 0 0" xyz="-0.2 -0.25 -0.05"/>
@@ -85,6 +105,11 @@
         <color rgba="0 0 0 1"/>
       </material>
     </visual>
+      <collision>
+       <geometry>
+        <sphere length="0.1" radius="0.06"/>
+       </geometry>
+      </collision>
 </link>
 <joint name="rollercast" type="continuous">
     <parent link="base"/>
@@ -100,6 +125,11 @@
       </geometry>
       <origin rpy="0 0 0" xyz="0.25 0.2 0.1"/>
     </visual>
+     <collision>
+       <geometry>
+        <sphere length="0.1" radius="0.05"/>
+       </geometry>
+     </collision>
   </link>
   <joint name="left_mandible" type="revolute">
     <axis xyz="0 0 -1"/>
@@ -115,6 +145,11 @@
       </geometry>
       <origin rpy="0 0 45" xyz="0.3 0.3 0.15"/>
     </visual>
+      <collision>
+       <geometry>
+        <box size='0.4 0.02 0.05'/>
+       </geometry>
+      </collision>
   </link>
 
  <link name="rightman">
@@ -127,7 +162,12 @@
     <inertial>
       <mass value="10"/>
       <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
-    </inertial> 
+    </inertial>
+      <collision>
+       <geometry>
+        <cylinder length="0.1" radius="0.05"/>
+       </geometry>
+      </collision> 
   </link>
   <joint name="Right_mandible" type="revolute">
     <axis xyz="0 0 1"/>
@@ -143,6 +183,11 @@
       </geometry>
       <origin rpy="0 0 -45" xyz="0.3 -0.3 0.15"/>
     </visual>
+      <collision>
+       <geometry>
+        <box size='0.4 0.02 0.05'/>
+       </geometry>
+      </collision>
   </link>
 <joint name="gripper_left" type="fixed">
     <parent link="leftman"/>
