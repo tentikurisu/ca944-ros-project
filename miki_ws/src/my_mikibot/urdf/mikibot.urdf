@@ -56,7 +56,7 @@
         <cylinder length="0.1" radius="0.05"/>
       </geometry>
     </collision>
-  </link>
+</link>
 <joint name="lWb_joint" type="continuous">
     <axis xyz="0 0 1"/>
     <parent link="base"/>
@@ -139,7 +139,7 @@
        </geometry>
      </collision>
   </link>
-  <joint name="left_mandible" type="revolute">
+  <joint name="Left_mandible" type="revolute">
     <axis xyz="0 0 -1"/>
     <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -195,6 +195,10 @@
       </geometry>
       <origin rpy="0 0 -45" xyz="0.3 -0.3 0.15"/>
     </visual>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
       <collision>
        <geometry>
         <box size='0.4 0.02 0.05'/>
@@ -211,4 +215,49 @@
     <child link="righthan"/>
     <origin xyz="0 0 0"/>
   </joint>
+ 
+ <transmission name="left_mandible_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$Lmandi_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="Left_mandible">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+ <transmission name="right_mandible_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="$Rmandi_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="Right_mandible">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+    <transmission name="Lwheel">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="L_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="bl_wheel">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+    <transmission name="Rwheel">
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="R_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="br_wheel">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/mikibot</robotNamespace>
+    </plugin>
+  </gazebo>
 </robot>
