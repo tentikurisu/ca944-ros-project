@@ -1,0 +1,30 @@
+<launch>
+  <arg name="model" default="cat '$(find my_mikibot)/urdf/mikibot.urdf'"/>
+  <arg name="rvizconfig" default="cat '$(find my_mikibot)/rviz/miki.rviz'" />
+
+  <include file="$(find my_mikibot)/launch/mikigazebo.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+
+  <rosparam command="load"
+            file="$(find my_mikibot)/control/miki_joints.yaml"
+            ns="miki_joint_state_controller" />
+  <rosparam command="load"
+            file="$(find my_mikibot)/control/miki_claw.yaml"
+            ns="miki_gripper_controller" />
+  <rosparam command="load"
+            file="$(find my_mikibot)/control/miki_diff.yaml"
+            ns="miki_diff_drive_controller" />
+
+  <node name="mikibot_controller_spawner" pkg="controller_manager" type="spawner"
+    args="miki_joint_state_controller
+          miki_gripper_controller
+          miki_diff_drive_controller
+          --shutdown-timeout 3"/>
+
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/mikibot_diff_drive_controller/cmd_vel"/>
+  </node>
+</launch>

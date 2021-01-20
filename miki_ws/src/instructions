@@ -36,7 +36,7 @@ launch mikibot in gazebo
 open a gazebo world
 $ roslaunch gazebo_ros empty_world.launch(empty_world can be any world)
 spawn mikibot into gazebo
-$ roslaunch my_mikibot spawn.launch 
+$ roslaunch y3-PDE3432-assesment-1/miki_ws/src/my_mikibot/launch/miki2.launch
 
 
 
