@@ -1,0 +1,23 @@
+mikibot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  bl_wheel_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: bl_wheel
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  br_wheel_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: br_wheel
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Left_mandible_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Left_mandible
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Right_mandible_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Right_mandible
+    pid: {p: 100.0, i: 0.01, d: 10.0}
