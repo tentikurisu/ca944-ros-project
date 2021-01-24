@@ -1,4 +1,0 @@
-type: "position_controllers/JointGroupPositionController"
-joints:
- - Left_mandible
- - Right_mandible

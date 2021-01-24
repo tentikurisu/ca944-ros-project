@@ -12,7 +12,7 @@
             file="$(find my_mikibot)/control/miki_joints.yaml"
             ns="miki_joint_state_controller" />
   <rosparam command="load"
-            file="$(find my_mikibot)/control/miki_claw.yaml"
+            file="$(find my_mikibot)/control/miki_hand.yaml"
             ns="miki_gripper_controller" />
   <rosparam command="load"
             file="$(find my_mikibot)/control/miki_diff.yaml"
@@ -25,6 +25,6 @@
           --shutdown-timeout 3"/>
 
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-    <param name="default_topic" value="/mikibot_diff_drive_controller/cmd_vel"/>
+    <param name="default_topic" value="/cmd_vel"/>
   </node>
 </launch>

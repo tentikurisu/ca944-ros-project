@@ -3,23 +3,23 @@
     <param name="robot_description" command="cat '$(find my_mikibot)/urdf/mikibot.urdf'" />
     
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
-          args="-urdf -param robot_description -model mikibot" />
+          args="-urdf -param robot_description -model mikibot -x -2 -y 0 -z 0" />
 
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
         <param name="use_gui" value="True"/>
     </node>
-  <!-- Load joint controller configurations from YAML file to parameter server -->
+   Load joint controller configurations from YAML file to parameter server
   <rosparam file="$(find my_mikibot)/control/mikibot_control.yaml" command="load"/>
 
-  <!-- load the controllers -->
+   load the controllers 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" ns="/mikibot" args="blwheel_position_controller brwheel_position_controller Lmandi_position_controller rmandi_position_controller joint_state_controller"/>
 
-  <!-- convert joint states to TF transforms for rviz, etc -->
+   convert joint states to TF transforms for rviz, etc 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
     respawn="false" output="screen">
     <remap from="/joint_states" to="/mikibot/joint_states" />
-  </node>
+  </node> 
 
 
 </launch>

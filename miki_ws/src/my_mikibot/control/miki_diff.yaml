@@ -1,8 +1,8 @@
   type: "diff_drive_controller/DiffDriveController"
   publish_rate: 50
 
-  left_wheel: ['blwheel']
-  right_wheel: ['brwheel']
+  left_wheel: ['bl_wheel']
+  right_wheel: ['br_wheel']
 
   wheel_separation: 1
 
